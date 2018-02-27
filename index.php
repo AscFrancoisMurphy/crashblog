@@ -34,12 +34,25 @@
             </form>
         </div>
     </div>
-    <?php
-        include 'auteurs.php';
-    ?>
+   
     <table>
 
     </table>
+    <div class="popup auteur">
+    <?php
+        include 'php/Auteurs.php';
+    ?>
+    </div>
+    <div class="popup article">
+    <?php
+        include 'php/Article.php';
+    ?>
+    </div>
+    <div class="popup categorie">
+    <?php
+        include 'php/Categories.php';
+    ?>
+    </div>
 </body>
 
 </html>
