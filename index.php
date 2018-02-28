@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/blog.css">
     <title>Document</title>
 </head>
 
@@ -31,6 +32,7 @@
             </form>
         </div>
         <div>
+
             <form action="index.php" method="post">
                 <select name="auteurs" id="">
                     <option value="autor">Autor</option>
@@ -53,6 +55,7 @@
                         ?>
                 </select>
                 <select name="categ" id="">
+
                     <option value="categorie">Catégorie</option>
                     <?php
 
@@ -75,6 +78,7 @@
             </form>
         </div>
     </div>
+
     
      <table>
     <?php
@@ -112,6 +116,7 @@
 }
 
 $reponse->closeCursor();
+
 
 ?>
     
