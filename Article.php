@@ -1,25 +1,77 @@
+<?php
+try
 
+{
+    $bdd = new PDO('mysql:host=localhost;dbname=Projet_blog;charset=utf8', 'root', 'TPdevlog', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch (Exception $e)
+
+{
+    die('Erreur : ' .$e ->getMessage());
+}
+?>
     <div class="cont_article">
 
 <p>Titre</p>
-  <input type="text" value="">
+  <input type="text" value="">    
+</select>
        
-</select>
-
      <p>Auteur</p>
+     <form action="article.php" method="post">
 <select id="Auteur"> 
-  <option value="Auteur 1">Valeur 1</option> 
-  <option value="Auteur 2">Valeur 2</option>
-  <option value="Auteur 3">Valeur 3</option>
+
+            <?php
+
+
+          $aut = $bdd->query('SELECT * FROM Auteurs');
+
+          while ($donnees = $aut->fetch())
+          {
+          ?>
+
+          <option value="<?php echo($donnees['Auteur_Nom']) ?>"><?php echo($donnees['Auteur_Nom']) ?></option>
+
+          <?php
+          }
+
+          $aut->closeCursor();
+
+          ?>
+
+
   <input type="submit" value="Créer">
 </select>
+</form>
+
+
  <p>Catégorie</p>
-<select id="Categorie"> 
-  <option value="Categorie 1">Valeur 1</option> 
-  <option value="Categorie 2">Valeur 2</option>
-  <option value="Categorie 3">Valeur 3</option>
+  <form action="article.php" method="post">
+  <select id="Categorie"> 
+
+           <?php
+
+
+                            $cat = $bdd->query('SELECT * FROM Categories');
+
+                           while ($donnees = $cat->fetch())
+                       {
+                        ?>
+                           
+                            <option value="<?php echo($donnees['Cat_Nom']) ?>"><?php echo($donnees['Cat_Nom']) ?></option>
+                           
+                        <?php
+                        }
+
+                       $cat->closeCursor();
+
+                        ?>
+
   <input type="submit" value="Créer">
 </select>
+</form>
+
+
+
 
 
         <div class="aff_categorie">
@@ -33,4 +85,8 @@
         </div>
         <a href="">x</a>
 </div>
+
+
+
+
 
