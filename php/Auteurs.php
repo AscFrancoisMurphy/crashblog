@@ -1,5 +1,17 @@
+<?php
+try
+{
 
+	$bdd = new PDO('mysql:host=localhost;dbname=CrashBlog-Equipe2;charset=utf8', 'root', 'ekpdeg3tx');
+}
+catch(Exception $e)
+{
+
+        die('Erreur : '.$e->getMessage());
+}
+?>
     <div class="cont_auteur">
+    
 
 
 
@@ -7,34 +19,27 @@
         <TABLE border="5" width="25%" align="left" bgcolor="yellow" vertical_align="middle">
 
 
-            <TR>
+         
+<?php
 
-                <TD> Auteur </TD>
-            </TR>
 
-             <TR>
+$reponse = $bdd->query('SELECT * FROM Auteur');
 
-                <TD> Auteur 1</TD>
-            </TR>
 
-            <TR>
+while ($donnees = $reponse->fetch())
+{
+?>
+    <tr>
+        
+   <td> <?php echo $donnees['Nom_auteur']; ?></td>
+        
+    </tr>
 
-                 <TD> Auteur 2</TD>
+<?php
+}
+$reponse->closeCursor();
 
-            </TR>
-            
-
-            <TR>
-
-                <TD> Auteur 3</TD>
-
-            </TR>
-
-            <TR>
-
-                <TD> Auteur 4</TD>
-
-            </TR>
+?>
 
 
         </TABLE>
@@ -49,4 +54,7 @@
         </div>
         <a href="">x</a>
 </div>
+
+
+
 
